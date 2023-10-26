@@ -20,7 +20,6 @@ elements.btnStart.addEventListener('click', () => {
         const diff = currenTime - initTime;
         const randomColor = getRandomHexColor();
         document.body.style.backgroundColor = randomColor;
-        console.log(diff);
     },1000)
 });
 
