@@ -16,3 +16,26 @@ img {
   display: block;
   max-width: 100%;
 }
+
+
+.timer {
+  display: flex;
+  gap: 24px;
+}
+
+.value {
+    font-size: 30px;
+}
+
+.label {
+  font-size: 20px;
+}
+
+input {
+  width: 370px;
+}
+
+button {
+  width: 85px;
+}
+
