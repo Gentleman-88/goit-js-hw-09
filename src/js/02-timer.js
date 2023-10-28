@@ -5,12 +5,19 @@ import Notiflix from 'notiflix';
 
 const elements = {
     textInput: document.querySelector('#datetime-picker'),
+    divTimer: document.querySelector('.timer'),
+    divFied: document.querySelector('.field'),
     btnStart: document.querySelector('[data-start]'),
     valueDay: document.querySelector('[data-days]'),
     valueHour: document.querySelector('[data-hours]'),
     valueMinute: document.querySelector('[data-minutes]'),
     valueSecond: document.querySelector('[data-seconds]')
 };
+
+elements.divTimer.style.display = 'flex';
+elements.divTimer.style.gap = '25px';
+elements.divFied.style.display = 'flex';
+elements.divFied.style.flexDirection = 'column';
 
 const options = {
     enableTime: true,
@@ -25,6 +32,10 @@ const options = {
 let intervalId;
 
 const datetimePicker = flatpickr("#datetime-picker", options);
+
+function addLeadingZero(value) {
+    return value.toString().padStart(2, '0');
+};
 
 elements.btnStart.addEventListener('click', () => {
     const selectedDate = datetimePicker.selectedDates[0];
@@ -42,16 +53,14 @@ elements.btnStart.addEventListener('click', () => {
                 clearInterval(intervalId);
                 Notiflix.Notify.success('Times up');
             } else {
-                elements.valueDay.textContent = days.toString().padStart(2, '0');;
-                elements.valueHour.textContent = hours.toString().padStart(2, '0');;
-                elements.valueMinute.textContent = minutes.toString().padStart(2, '0');;
-                elements.valueSecond.textContent = seconds.toString().padStart(2, '0');;
+                elements.valueDay.textContent = addLeadingZero(days);
+                elements.valueHour.textContent = addLeadingZero(hours);
+                elements.valueMinute.textContent = addLeadingZero(minutes);
+                elements.valueSecond.textContent = addLeadingZero(seconds);
             }
         }, 1000)
     }
 });
-
-
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
