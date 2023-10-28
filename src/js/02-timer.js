@@ -6,14 +6,14 @@ import Notiflix from 'notiflix';
 const elements = {
     textInput: document.querySelector('#datetime-picker'),
     divTimer: document.querySelector('.timer'),
-    divFied: document.querySelector('.field'),
+    divFied: document.querySelectorAll('.field'),
     btnStart: document.querySelector('[data-start]'),
     valueDay: document.querySelector('[data-days]'),
     valueHour: document.querySelector('[data-hours]'),
     valueMinute: document.querySelector('[data-minutes]'),
     valueSecond: document.querySelector('[data-seconds]'),
-    value: document.querySelector('.value'),
-    label: document.querySelector('label')
+    value: document.querySelectorAll('.value'),
+    label: document.querySelectorAll('label')
 };
 
 const options = {
