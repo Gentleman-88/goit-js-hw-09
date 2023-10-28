@@ -11,13 +11,10 @@ const elements = {
     valueDay: document.querySelector('[data-days]'),
     valueHour: document.querySelector('[data-hours]'),
     valueMinute: document.querySelector('[data-minutes]'),
-    valueSecond: document.querySelector('[data-seconds]')
+    valueSecond: document.querySelector('[data-seconds]'),
+    value: document.querySelector('.value'),
+    label: document.querySelector('label')
 };
-
-elements.divTimer.style.display = 'flex';
-elements.divTimer.style.gap = '25px';
-elements.divFied.style.display = 'flex';
-elements.divFied.style.flexDirection = 'column';
 
 const options = {
     enableTime: true,
@@ -79,7 +76,16 @@ function convertMs(ms) {
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
   return { days, hours, minutes, seconds };
-}
+};
+
+
+elements.divTimer.style.display = 'flex';
+elements.divTimer.style.gap = '25px';
+elements.value.style.fontSize = '30px';
+elements.label.style.fontSize = '20px';
+elements.textInput.style.width = '370px';
+elements.btnStart.style.width = '85px';
+
 
 
 
